@@ -9,17 +9,12 @@ This assignment is to practice React : passing props, React hook: useState, useE
 
 ## Screenshots
 
-![homepage]
+![homepage] (./src/assets/homePage.png)
 
-image.png
+![homepage] (./src/assets/homePage2.png)
 
-image.png
+![cartPage] (./src/assets/cartPage.png)
 
-![cartPage]
+![detailPage] (./src/assets/detailPage.png)
 
-image.png
-
-![detailPage]
-
-image.png
 
