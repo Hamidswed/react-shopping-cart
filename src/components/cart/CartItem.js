@@ -1,8 +1,7 @@
 import React from "react";
 import "./CartItem.css";
 
-export default function CartItem({ item, onDelete }) {
-  
+export default function CartItem({ item, onDelete, onAdd , onDeleteComplete}) {
   return (
     <div className="cart-item">
       <tr>
@@ -11,9 +10,17 @@ export default function CartItem({ item, onDelete }) {
         <td className="cart-img">
           <img src={item.image} alt={item.title} />
         </td>
-        <td className="cart-qty">{item.qty}</td>
-        <td className="cart-price">{item.price * item.qty}</td>
-        <button type="button" className="cart-btn" onClick={()=>onDelete(item.id)}>
+        <td className="cart-qty">
+          <button className="cart-qtybtn" onClick={() => onDelete(item.id)}>-</button>
+          <span>{item.qty}</span>
+          <button className="cart-qtybtn" onClick={() => onAdd(item.id)}>+</button>
+        </td>
+        <td className="cart-price">$ {item.price * item.qty}</td>
+        <button
+          type="button"
+          className="cart-btn"
+          onClick={() => onDeleteComplete(item.id)}
+        >
           Remove
         </button>
       </tr>

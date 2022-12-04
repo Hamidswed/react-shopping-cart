@@ -18,7 +18,7 @@
   text-align: center;
 }
 .cart-qty {
-  width: 70px;
+  width: 80px;
   text-align: center;
 }
 .cart-price{
@@ -37,4 +37,20 @@
 .cart-btn:hover{
   background-color: #e63946;
   color: #fff;
+}
+.cart-item span{
+  padding: 0 10px;
+}
+.cart-qtybtn{
+  width: 20px;
+  text-align: center;
+  padding: 2px;
+  background-color: black;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.cart-qtybtn:hover{
+  background-color: orange;
+  color: black;
 }
