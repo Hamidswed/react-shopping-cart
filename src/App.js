@@ -8,8 +8,8 @@ import { CartProvider } from "./shared/context/cart-context";
 function App() {
   return (
     <div>
-      <NavBar />
       <CartProvider>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
