@@ -20,7 +20,8 @@ export default function ProductList() {
       <h2>ProductList</h2>
       <div className="product-list">
         {productItem.slice(0, 9).map((item) => {
-          return <ProductItem key={item.id} item={item} />;
+          const newItem = {...item, qty:1}
+          return <ProductItem key={newItem.id} item={newItem} />;
         })}
       </div>
     </div>

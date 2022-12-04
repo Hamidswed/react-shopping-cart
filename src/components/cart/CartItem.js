@@ -1,7 +1,8 @@
 import React from "react";
 import "./CartItem.css";
 
-export default function CartItem({ item, onDelete }) { 
+export default function CartItem({ item, onDelete }) {
+  
   return (
     <div className="cart-item">
       <tr>
