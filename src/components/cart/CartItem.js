@@ -1,7 +1,12 @@
 import React from "react";
 import "./CartItem.css";
 
-export default function CartItem({ item, onDelete, onAdd , onDeleteComplete}) {
+export default function CartItem({
+  item,
+  removeFromCart,
+  removeQtyCart,
+  addToCart,
+}) {
   return (
     <div className="cart-item">
       <tr>
@@ -11,15 +16,22 @@ export default function CartItem({ item, onDelete, onAdd , onDeleteComplete}) {
           <img src={item.image} alt={item.title} />
         </td>
         <td className="cart-qty">
-          <button className="cart-qtybtn" onClick={() => onDelete(item.id)}>-</button>
+          <button
+            className="cart-qtybtn"
+            onClick={() => removeQtyCart(item.id)}
+          >
+            -
+          </button>
           <span>{item.qty}</span>
-          <button className="cart-qtybtn" onClick={() => onAdd(item.id)}>+</button>
+          <button className="cart-qtybtn" onClick={() => addToCart(item)}>
+            +
+          </button>
         </td>
         <td className="cart-price">$ {item.price * item.qty}</td>
         <button
           type="button"
           className="cart-btn"
-          onClick={() => onDeleteComplete(item.id)}
+          onClick={() => removeFromCart(item.id)}
         >
           Remove
         </button>

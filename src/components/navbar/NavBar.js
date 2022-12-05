@@ -1,11 +1,12 @@
-import React, {useContext} from "react";
+import React from "react";
 import "./NavBar.css";
 import Logo from "../../assets/logo.jpeg";
 import { Link } from "react-router-dom";
-import { CartContext } from './../../shared/context/cart-context';
+import {AiOutlineShoppingCart} from 'react-icons/ai'
 
-export default function NavBar() {
-  const [cartItems, setCartItems] = useContext(CartContext);
+
+export default function NavBar(cartLength) {
+
   return (
     <div className="navbar">
       <div className="navbar-img">
@@ -19,7 +20,7 @@ export default function NavBar() {
             <li>Home</li>
           </Link>
           <Link to="/cart" className="nav-link">
-            <li>Cart <span>{cartItems.length}</span></li>
+            <li><AiOutlineShoppingCart size={"25px"}/> <span>{cartLength.cartLength.length}</span></li>
           </Link>
         </ul>
       </div>

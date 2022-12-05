@@ -1,21 +1,65 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail";
-import { CartProvider } from "./shared/context/cart-context";
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (product) => {
+    const updatedCartArray = [...cartItems];
+    const updatedProduct = { ...product, qty: 1 };
+    const productIndex = updatedCartArray.findIndex(
+      (item) => item.id === product.id
+    );
+    if (productIndex === -1) {
+      setCartItems([...updatedCartArray, updatedProduct]);
+    } else {
+      updatedCartArray[productIndex].qty += 1;
+      setCartItems(updatedCartArray);
+    }
+  };
+  const removeFromCart = (id) => {
+    const updatedCartArray = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCartArray);
+  };
+  const removeQtyCart = (id) => {
+    const productIndex = cartItems.findIndex((item) => item.id === id);
+    const updatedCartArray = [...cartItems];
+    if (productIndex !== -1 && updatedCartArray[productIndex].qty !== 1) {
+      updatedCartArray[productIndex].qty -= 1;
+      setCartItems(updatedCartArray);
+    } else {
+      removeFromCart(id);
+    }
+  };
+  
   return (
     <div>
-      <CartProvider>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
-        </Routes>
-      </CartProvider>
+      <NavBar cartLength={cartItems} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home addToCart={addToCart} cartItems={cartItems} />}
+        />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cartItems={cartItems}
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+              removeQtyCart={removeQtyCart}
+            />
+          }
+        />
+        <Route
+          path="/products/:id"
+          element={<ProductDetail addToCart={addToCart} />}
+        />
+      </Routes>
     </div>
   );
 }

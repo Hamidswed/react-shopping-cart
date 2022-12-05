@@ -27,6 +27,7 @@
   list-style-type: none;
   margin-left:50px;
   text-decoration: none;
+  font-weight: 600;
   color: black;
   transition: .2s ease-in-out;
 }
@@ -41,11 +42,10 @@
   background-color: #e63946;
   color:#fff;
   font-size: 10px;
-  width:25px ;
-  height: 25px;
+  width:20px ;
+  height: 20px;
   font-weight: bold;
   border-radius: 50%;
   top:25px;
-  right:75px;
-
+  right:80px;
 }

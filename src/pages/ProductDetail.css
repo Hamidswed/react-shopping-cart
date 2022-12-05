@@ -37,8 +37,12 @@
   width: 300px;
   text-align: left;
 }
-
-.container-detail button{
+.btn-detail{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.back-btn-detail{
   width: 7rem;
   padding: 7px 5px;
   margin-top: 5px;
@@ -48,8 +52,23 @@
   cursor: pointer;
   transition: .1s ease-in-out;
 }
-.container-detail button:hover{
+.back-btn-detail:hover{
   background-color: black;
   color: #fff;
+  border: 1px solid #fff;
+}
+.add-btn-detail{
+  width: 7rem;
+  padding: 7px 10px;
+  margin-top: 5px;
+  border: 1px solid #fff;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  transition: .1s ease-in-out;
+}
+.add-btn-detail:hover{
+  background-color: orange;
+  color: black;
   border: 1px solid #fff;
 }

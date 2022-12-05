@@ -1,9 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useCallback, useState, useEffect } from "react";
-import './ProductDetail.css'
+import "./ProductDetail.css";
 
-const ProductDetail = () => {
+const ProductDetail = ({ addToCart }) => {
   const productId = useParams();
 
   const [proDetail, setProDetail] = useState({});
@@ -33,9 +33,20 @@ const ProductDetail = () => {
           <h3>${proDetail.price}</h3>
         </div>
       </div>
-      <Link to="/">
-        <button type="button">Back</button>
-      </Link>
+      <div className="btn-detail">
+        <Link to="/">
+          <button type="button" className="back-btn-detail">
+            Back
+          </button>
+        </Link>
+        <button
+          type="button"
+          className="add-btn-detail"
+          onClick={() => addToCart(proDetail)}
+        >
+          Add to cart
+        </button>
+      </div>
     </div>
   );
 };
