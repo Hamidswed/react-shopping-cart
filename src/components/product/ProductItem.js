@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductItem.css";
 import { Link } from "react-router-dom";
 
-export default function ProductItem({ item, addToCart, cartItems }) {
-  
+export default function ProductItem({
+  item,
+  addToCart,
+  cartItems,
+  removeQtyCart,
+}) {
+  const [proIndex, setProIndex] = useState(-1);
+  const [cart, setCart] = useState(cartItems);
+  useEffect(() => {
+    const index = cart.findIndex((obj) => obj.id === item.id);
+    setProIndex(index);
+    setCart(cartItems);
+  }, [cart, cartItems, item.id]);
+
   return (
     <div className="product-item">
       <div>
@@ -19,7 +31,7 @@ export default function ProductItem({ item, addToCart, cartItems }) {
             More detail
           </button>
         </Link>
-        {/* {cartItems.length === 0 ? ( */}
+        {proIndex < 0 ? (
           <button
             type="button"
             className="add-btn"
@@ -27,13 +39,13 @@ export default function ProductItem({ item, addToCart, cartItems }) {
           >
             Add to cart
           </button>
-         {/* ) : (
+        ) : (
           <div className="product-counter">
-            <button>-</button>
-            <span>0</span>
-            <button>+</button>
+            <button onClick={() => removeQtyCart(item.id)}>-</button>
+            <span>{cart[proIndex]?.qty}</span>
+            <button onClick={() => addToCart(item)}>+</button>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );

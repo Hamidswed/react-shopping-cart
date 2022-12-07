@@ -13,14 +13,16 @@ export default function CartList({
     <div>
       <div className="cart-list">
         <table>
-          <tr>
-            <th className="id">ID</th>
-            <th className="name">Name</th>
-            <th className="img">Image</th>
-            <th className="qty">Quantity</th>
-            <th className="price">Price</th>
-            <th className="rmv-btn">Remove</th>
-          </tr>
+          <thead>
+            <tr>
+              <th className="id">ID</th>
+              <th className="name">Name</th>
+              <th className="img">Image</th>
+              <th className="qty">Quantity</th>
+              <th className="price">Price</th>
+              <th className="rmv-btn">Remove</th>
+            </tr>
+          </thead>
           {cartItems.map((item) => {
             return (
               <CartItem
@@ -34,6 +36,7 @@ export default function CartList({
           })}
         </table>
       </div>
+      {cartItems.length === 0 ? <p>There is no product in the cart.</p> : null}
       <Link to="/" className="cart-backbtn">
         <button type="button">Back</button>
       </Link>

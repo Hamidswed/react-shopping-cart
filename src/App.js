@@ -35,14 +35,20 @@ function App() {
       removeFromCart(id);
     }
   };
-  
+
   return (
     <div>
       <NavBar cartLength={cartItems} />
       <Routes>
         <Route
           path="/"
-          element={<Home addToCart={addToCart} cartItems={cartItems} />}
+          element={
+            <Home
+              addToCart={addToCart}
+              cartItems={cartItems}
+              removeQtyCart={removeQtyCart}
+            />
+          }
         />
         <Route
           path="/cart"

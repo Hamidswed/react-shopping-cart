@@ -8,7 +8,7 @@ export default function CartItem({
   addToCart,
 }) {
   return (
-    <div className="cart-item">
+    <tbody className="cart-item">
       <tr>
         <td className="cart-id">{item.id}</td>
         <td className="cart-title">{item.title.slice(0, 20)}</td>
@@ -28,14 +28,17 @@ export default function CartItem({
           </button>
         </td>
         <td className="cart-price">$ {item.price * item.qty}</td>
-        <button
+        <td>
+          <button
           type="button"
           className="cart-btn"
           onClick={() => removeFromCart(item.id)}
         >
           Remove
         </button>
+        </td>
+        
       </tr>
-    </div>
+    </tbody>
   );
 }
