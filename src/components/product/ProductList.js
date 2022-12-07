@@ -19,17 +19,21 @@ export default function ProductList({ addToCart, cartItems, removeQtyCart }) {
     <div className="title">
       <h2>ProductList</h2>
       <div className="product-list">
-        {productItem.slice(0, 9).map((item) => {
-          return (
-            <ProductItem
-              key={item.id}
-              item={item}
-              addToCart={addToCart}
-              removeQtyCart={removeQtyCart}
-              cartItems={cartItems}
-            />
-          );
-        })}
+        {productItem.length !== 0 ? (
+          productItem.slice(0, 9).map((item) => {
+            return (
+              <ProductItem
+                key={item.id}
+                item={item}
+                addToCart={addToCart}
+                removeQtyCart={removeQtyCart}
+                cartItems={cartItems}
+              />
+            );
+          })
+        ) : (
+          <i className="fas fa-spinner fa-spin fa-xl" />
+        )}
       </div>
     </div>
   );
