@@ -27,17 +27,16 @@ export default function CartItem({
             +
           </button>
         </td>
-        <td className="cart-price">$ {item.price * item.qty}</td>
+        <td className="cart-price">$ {item.totalPrice}</td>
         <td>
           <button
-          type="button"
-          className="cart-btn"
-          onClick={() => removeFromCart(item.id)}
-        >
-          Remove
-        </button>
+            type="button"
+            className="cart-btn"
+            onClick={() => removeFromCart(item.id)}
+          >
+            Remove
+          </button>
         </td>
-        
       </tr>
     </tbody>
   );

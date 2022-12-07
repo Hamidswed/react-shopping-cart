@@ -10,7 +10,7 @@ function App() {
 
   const addToCart = (product) => {
     const updatedCartArray = [...cartItems];
-    const updatedProduct = { ...product, qty: 1 };
+    const updatedProduct = { ...product, qty: 1, totalPrice: product.price };
     const productIndex = updatedCartArray.findIndex(
       (item) => item.id === product.id
     );
@@ -18,6 +18,10 @@ function App() {
       setCartItems([...updatedCartArray, updatedProduct]);
     } else {
       updatedCartArray[productIndex].qty += 1;
+      setCartItems(updatedCartArray);
+      updatedCartArray[productIndex].totalPrice =
+        updatedCartArray[productIndex].price *
+        updatedCartArray[productIndex].qty;
       setCartItems(updatedCartArray);
     }
   };
@@ -30,6 +34,10 @@ function App() {
     const updatedCartArray = [...cartItems];
     if (productIndex !== -1 && updatedCartArray[productIndex].qty !== 1) {
       updatedCartArray[productIndex].qty -= 1;
+      setCartItems(updatedCartArray);
+      updatedCartArray[productIndex].totalPrice =
+        updatedCartArray[productIndex].price *
+        updatedCartArray[productIndex].qty;
       setCartItems(updatedCartArray);
     } else {
       removeFromCart(id);

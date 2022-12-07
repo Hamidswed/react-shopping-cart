@@ -37,6 +37,10 @@ export default function CartList({
         </table>
       </div>
       {cartItems.length === 0 ? <p>There is no product in the cart.</p> : null}
+      <div>
+        total price:
+        {/* {cartItems.reduce((acc, curr) => acc.totalPrice + curr.totalPrice)} */}
+      </div>
       <Link to="/" className="cart-backbtn">
         <button type="button">Back</button>
       </Link>
