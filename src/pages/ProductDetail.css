@@ -6,7 +6,7 @@
 .product-detail{
   display: flex;
   justify-content: center;
-  padding: 50px 50px;
+  padding: 30px 50px;
 }
 .img-detail{
   display: flex;

@@ -27,7 +27,7 @@ export default function CartItem({
             +
           </button>
         </td>
-        <td className="cart-price">$ {item.totalPrice}</td>
+        <td className="cart-price">$ {item.totalPrice.toFixed(2)}</td>
         <td>
           <button
             type="button"

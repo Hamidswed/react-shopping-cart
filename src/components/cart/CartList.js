@@ -36,14 +36,25 @@ export default function CartList({
           })}
         </table>
       </div>
-      {cartItems.length === 0 ? <p>There is no product in the cart.</p> : null}
-      <div>
-        total price:
-        {/* {cartItems.reduce((acc, curr) => acc.totalPrice + curr.totalPrice)} */}
+      <div className="btn-price-div">
+        {cartItems.length === 0 ? (
+          <p>There is no product in the cart.</p>
+        ) : (
+          <div className="total-price">
+            <span>Total price:</span>
+            <span style={{ fontWeight: "bold", color: "orange" }}>
+              $
+              {cartItems
+                .reduce((acc, curr) => acc + curr.totalPrice, 0)
+                .toFixed(2)}
+            </span>
+            <button type="button">Payment</button>
+          </div>
+        )}
+        <Link to="/" className="cart-backbtn">
+          Back
+        </Link>
       </div>
-      <Link to="/" className="cart-backbtn">
-        <button type="button">Back</button>
-      </Link>
     </div>
   );
 }
