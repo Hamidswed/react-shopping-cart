@@ -4,7 +4,7 @@ This assignment is to practice React : passing props, React hook: useState, useE
 
 ## WebPage Link:
 
-[title][click to open]
+[shopping link][click to open]
 
 ## How to run project
 
@@ -20,6 +20,5 @@ This assignment is to practice React : passing props, React hook: useState, useE
 ![cartPage](./src/assets/cartPage.png)
 
 ![detailPage](./src/assets/detailPage.png)
-
 
 [click to open]: https://isa-6-react-shopping-cart.vercel.app/
