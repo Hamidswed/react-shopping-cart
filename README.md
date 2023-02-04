@@ -1,4 +1,4 @@
-# React assignment
+# React assignment (public repo)
 
 This assignment is to practice React : passing props, React hook: useState, useEffect and React router
 
